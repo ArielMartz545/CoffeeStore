@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Servicios{% endblock %}
+
+{% block content %}
+{% for services in services reversed %}
+
+<section class="page-section">
+  <div class="container">
+    <div class="product-item">
+      <div class="product-item-title d-flex">
+        <div class="bg-faded p-5 d-flex mr-auto rounded">
+          <h2 class="section-heading mb-0">
+            <span class="section-heading-upper">{{services.subtitle}}</span>
+            <span class="section-heading-lower">{{services.title}}</span>
+          </h2>
+        </div>
+      </div>
+      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{ services.image.url}}" alt="">
+      <div class="product-item-description d-flex ml-auto">
+        <div class="bg-faded p-5 rounded">
+          <p class="mb-0">{{services.content}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endfor %}
+{% endblock %}
+
+
+
+<form action=" {% url %} "method="POST" enctype="multipart/form-data">
+  <div>
+      <div class="form-group" id="rating-ability-wrapper">
+         
+          <button type="button" class="btnrating btn btn-default  btn-sm" data-attr="1" id="rating-star-1">
+              <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btnrating btn btn-default btn-sm" data-attr="2" id="rating-star-2">
+              <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btnrating btn btn-default btn-sm" data-attr="3" id="rating-star-3">
+              <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btnrating btn btn-default btn-sm" data-attr="4" id="rating-star-4">
+              <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btnrating btn btn-default btn-sm" data-attr="5" id="rating-star-5">
+              <i class="fa fa-star" aria-hidden="true"></i>
+          </button>                            
+          <button type="submit" class="btn btn-primary"  id="selected_rating" name="selected_rating" value="" required="required">Enviar</button>
+      </div>
+  </div>
+  </form>
